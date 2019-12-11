@@ -1,0 +1,36 @@
+h1{
+    font-size: 40px;
+    font-family : 'Times New Roman', Times, serif;
+    font-weight : bolder;
+    color : purple;
+}
+
+.tr{
+    background-color: rgb(182, 83, 228);
+    color: white;
+    align-content: center;
+}
+
+.table{
+    margin-bottom: 0.1rem;
+    font-family : 'Times New Roman', Times, serif;
+    text-align: center
+}
+
+.btn-primary{
+    background-color: rgb(196, 141, 221);
+    border-color: rgb(196, 141, 221);
+    border-radius: 0.5rem;
+}
+
+label{
+    font-family : 'Times New Roman', Times, serif;
+    font-weight : bolder;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.form-control{
+    width: 10%;
+    
+}
