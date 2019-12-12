@@ -18,7 +18,7 @@ class NewPerson extends Component{
         const { person, errors, globalError } = this.state;
         
         return (
-            <div>
+            <div className = "teste">
                 <h1> New Person</h1>
 
                 {globalError ? <div className="alert alert-danger">
@@ -40,7 +40,7 @@ class NewPerson extends Component{
                        errors={errors["cpf"]}
                        onChange={this.handleChange}
                     />
-                    <button className = "botao" type = "submit">Salve</button>
+                    <button className = "btn btn-primary" type = "submit">Save</button>
                 </form>
             </div>
         );
@@ -50,7 +50,6 @@ class NewPerson extends Component{
         let field = event.target.name;
         let value = event.target.value;
         
-        console.log(value)
         this.setState( ( {person}) => ({
             person: {
                 ...person,

@@ -3,6 +3,8 @@ h1{
     font-family : 'Times New Roman', Times, serif;
     font-weight : bolder;
     color : purple;
+    margin-bottom: 2rem;
+    margin: 15px 30px;
 }
 
 .tr{
@@ -21,16 +23,21 @@ h1{
     background-color: rgb(196, 141, 221);
     border-color: rgb(196, 141, 221);
     border-radius: 0.5rem;
+    margin-right: 10px;
 }
 
 label{
     font-family : 'Times New Roman', Times, serif;
     font-weight : bolder;
     font-size: 20px;
-    margin-right: 10px;
+    padding: 6px 12px;
 }
 
 .form-control{
-    width: 10%;
-    
+    width: 20%;
+}
+
+.teste{
+    margin: 15px 30px;
+
 }

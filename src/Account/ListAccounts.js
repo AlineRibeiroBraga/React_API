@@ -42,9 +42,9 @@ class Account extends Component {
         <td>{account.id}</td>
         <td>{account.account}</td>
         <td>{account.balance}</td>
-        <td><Link className="btn btn-primary" onClick={() => this.handleRemove(account.id)}> Remove </Link></td>
-        <td><Link to = "/account/withDraw" className="btn btn-primary" onClick={() => this.handleWithDraw(account.id)}> With Draw </Link></td>
-       
+        <td><Link to = "" className="btn btn-primary" onClick={() => this.handleRemove(account.id)}> Remove </Link>
+            <Link to = {`/account/withDraw/${account.id}`} className="btn btn-primary"> With Draw </Link>
+            <Link to = {`/account/deposit/${account.id}`} className="btn btn-primary"> Deposit </Link></td>
     </tr>
 
     handleRemove(id){

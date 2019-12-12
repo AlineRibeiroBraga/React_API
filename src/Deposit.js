@@ -1,51 +1,50 @@
 import React, {Component} from 'react';
-import Field from './Component/Field';
 import axios from './httpClient';
+import Field from './Component/Field';
 
-class WithDraw extends Component{
+class Deposit extends Component{
 
     state = {
-        balance: {
-            balance:""
+        balance : {
+            balance: ""
         },
-        errors: {},
+        errors : {},
         globalError: ""
     }
 
     render(){
-        const {balance, errors,/* globalError*/ } = this.state;
+        const { balance, errors, globalError} = this.state;
 
         return <div>
-            <h1>With Draw</h1>
+            <h1> Deposit</h1>
 
-            <form onSubmit ={this.handleSubmit}>
-                <Field 
+            <form onSubmit = {this.handleSubmit}>
+                <Field
                     name = "balance"
-                    label = "Balance"
+                    label ="Deposit"
                     value = {balance.balance}
                     errors={errors["balance"]}
                     onChange={this.handleChange}
                 />
-                <button className="btn btn-primary"> With Draws </button>
+                <button className = "btn btn-primary "> Deposit </button>
             </form>
         </div>
     }
 
-    handleChange = (event) => {
+    handleChange = (event) =>{
         let field = event.target.name;
         let value = event.target.value;
-        
+
         this.setState( ({balance}) => ({
             balance: {
                 ...balance,
                 [field]: value
             }
-        }));
+        }))
     }
 
     handleSubmit = (event) => {
-    
-        axios.post(`/account/withDraw/${this.retrieveBookId()}`, this.state.balance)
+        axios.post(`/account/deposit/${this.retrieveBookId()}`,this.state.balance)
              .then( () => this.props.history.push("/account"))
              .catch(({ response }) => {
                 if (response.status === 400) {
@@ -61,9 +60,10 @@ class WithDraw extends Component{
             });
             
         event.preventDefault();
+
     }
 
     retrieveBookId = () => this.props.match.params.id;
-};
+}
 
-export default WithDraw;
+export default Deposit;

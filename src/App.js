@@ -4,7 +4,8 @@ import ListPerson from './People/ListPerson';
 import NewPerson from './People/NewPerson';
 import ListAccounts from './Account/ListAccounts';
 import WithDraw from './WithDraw';
-
+import Deposit from './Deposit';
+ 
 const App = () => {
   return (
     <div className="App">
@@ -13,7 +14,8 @@ const App = () => {
                 <Route path = {["/", "/person"]} exact component = {ListPerson}/>
                 <Route path = {["/person/new"]} exact component = {NewPerson}/>
                 <Route path = {["/account"]} exact component = {ListAccounts}/>
-                <Route path = {["/account/withDraw"]} exact component = {WithDraw}/>
+                <Route path = {["/account/withDraw/:id"]} exact component = {WithDraw}/>
+                <Route path = {["/account/deposit/:id"]} exact component = {Deposit}/>
                 {/* <Route path="*" component={NotFound}/> */}
             </Switch>
         </BrowserRouter>
