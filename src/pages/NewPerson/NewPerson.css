@@ -1,0 +1,38 @@
+.newPersonTitle{
+    font-size: 35px;
+    font-family : 'Times New Roman', Times, serif;
+    font-weight : bolder;
+    color : purple;
+    margin: 20px 20px 20px 54px;
+}
+
+.label{
+    font-family : 'Times New Roman', Times, serif;
+    font-weight : bolder;
+    font-size: 20px;
+    margin-left: 60px;
+    margin-right: 5px;
+    padding: 6px 0px;
+    flex: 0.4;
+}
+
+form {
+    max-width: 500px;
+}
+
+.form-row > input {
+    width: 300px;
+}
+
+.btn-success{
+    background-color: rgb(196, 141, 221);
+    border-color: rgb(196, 141, 221);
+    border-radius: 0.5rem;
+    margin-left: 54px;
+    margin-top: 3px;
+    font-family : 'Times New Roman', Times, serif;
+}
+
+.btn-success:hover{
+    background-color: green;
+}

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import axios from './httpClient';
-import Field from './Component/Field';
+import Field from '../../Component/Field/Field';
+
+import axios from '../../services/httpClient';
 
 class Deposit extends Component{
 
@@ -16,7 +17,7 @@ class Deposit extends Component{
         const { balance, errors, globalError} = this.state;
 
         return <div>
-            <h1> Deposit</h1>
+            <h1 className = "newPersonTitle"> Deposit</h1>
 
             <form onSubmit = {this.handleSubmit}>
                 <Field
@@ -26,7 +27,7 @@ class Deposit extends Component{
                     errors={errors["balance"]}
                     onChange={this.handleChange}
                 />
-                <button className = "btn btn-primary "> Deposit </button>
+                <button className = "btn btn-success"> Deposit </button>
             </form>
         </div>
     }

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import Field from './Component/Field';
-import axios from './httpClient';
+import Field from '../../Component/Field/Field';
+
+import axios from '../../services/httpClient';
 
 class WithDraw extends Component{
 
@@ -16,7 +17,7 @@ class WithDraw extends Component{
         const {balance, errors,/* globalError*/ } = this.state;
 
         return <div>
-            <h1>With Draw</h1>
+            <h1 className = "newPersonTitle">With Draw</h1>
 
             <form onSubmit ={this.handleSubmit}>
                 <Field 
@@ -26,7 +27,7 @@ class WithDraw extends Component{
                     errors={errors["balance"]}
                     onChange={this.handleChange}
                 />
-                <button className="btn btn-primary"> With Draws </button>
+                <button className="btn btn-success"> With Draws </button>
             </form>
         </div>
     }

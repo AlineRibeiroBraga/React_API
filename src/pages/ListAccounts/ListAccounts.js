@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import axios from '../httpClient';
-import 'bootstrap/dist/css/bootstrap.min.css'
 import { Link } from 'react-router-dom';
-import '../List.css';
 
-class Account extends Component {
+import axios from '../../services/httpClient';
+
+class ListAccounts extends Component {
 
     state = {
         accounts: []
@@ -15,25 +14,24 @@ class Account extends Component {
     }
 
     render() {
-        return <div className = "container">
+        return <div>
             
-            <h1>Accounts</h1>
-            
-            <table className="table table-striped">
+            <h1 className = "titlePeople">Accounts</h1>
+        
+             <table className="table table-striped">
                 <thead>
                     <tr className = "tr">
                         <th>ID</th>
                         <th>Account</th>
                         <th>Balance</th>
-                        <th></th>
-                        <th></th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     {this.state.accounts.map(account => this.accountRow(account))}
                 </tbody>
-            </table>                           
-            <Link to = "/account/new" className="btn btn-primary" onClick={() => this.handleAdd()}> Add </Link>
+            </table>
+            <Link to = "/account/new" className="btn btn-secondary" onClick={() => this.handleAdd()}> Add </Link>
         </div>
 
     }
@@ -42,7 +40,7 @@ class Account extends Component {
         <td>{account.id}</td>
         <td>{account.account}</td>
         <td>{account.balance}</td>
-        <td><Link to = "" className="btn btn-primary" onClick={() => this.handleRemove(account.id)}> Remove </Link>
+        <td><button className="btn btn-primary" onClick={() => this.handleRemove(account.id)}> Remove </button>
             <Link to = {`/account/withDraw/${account.id}`} className="btn btn-primary"> With Draw </Link>
             <Link to = {`/account/deposit/${account.id}`} className="btn btn-primary"> Deposit </Link></td>
     </tr>
@@ -69,4 +67,4 @@ class Account extends Component {
     
 }
 
-export default Account;
+export default ListAccounts;

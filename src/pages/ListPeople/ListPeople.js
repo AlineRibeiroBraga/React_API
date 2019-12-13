@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import axios from '../httpClient';
-import 'bootstrap/dist/css/bootstrap.min.css'
+import axios from '../../services/httpClient';
 import { Link } from 'react-router-dom';
-import '../List.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './ListPeople.css';
 
-class People extends Component {
+class ListPeople extends Component {
 
     state = {
         people: []
@@ -18,28 +18,35 @@ class People extends Component {
         <td>{person.id}</td>
         <td>{person.name}</td>
         <td>{person.cpf}</td>
+        <td>
+            <button className = "btn btn-primary">Edit</button>
+            <button className = "btn btn-danger" /*onClick ={ () => handleRemove(person.id)}*/ >Remove</button> </td>
     </tr>
 
     render() {
-        return <div className = "container">
-            <h1>People</h1>
+        return <div >
+            <h1 className = "titlePeople">People</h1>
             <table className="table table-striped">
                 <thead>
                     <tr className = "tr">
                         <th>ID</th>
                         <th>Name</th>
                         <th>CPF</th>
-                        <th>Edit</th>
-                        <th>Remove</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     {this.state.people.map(person => this.personRow(person))}
                 </tbody>
-            </table>                           
-             <Link to = "/person/new" className="btn btn-primary" onClick={() => this.handleAdd()}> Add </Link>
+            </table>
+            <Link to = "/person/new" className="btn btn-secondary" onClick={() => this.handleAdd()}> Add </Link>                       
         </div>
 
+    }
+
+    retrievePeople() {
+        axios.get("/person")
+            .then(({ data }) => this.setState({ people: data }))
     }
 
     handleAdd = () => {
@@ -47,10 +54,11 @@ class People extends Component {
             .then(() => this.retrievePeople());
     }
 
-    retrievePeople() {
-        axios.get("/person")
-            .then(({ data }) => this.setState({ people: data }))
+    handleRemove = (id) => {
+        axios.delete("/")
+            .then( () => this.retrievePeople());
     }
+    
 }
 
-export default People;
+export default ListPeople;

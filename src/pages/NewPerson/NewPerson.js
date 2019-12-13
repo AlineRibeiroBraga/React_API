@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import Field from '../Component/Field';
-import axios from '../httpClient';
+import Field from '../../Component/Field/Field';
+import axios from '../../services/httpClient';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './NewPerson.css';
 
 class NewPerson extends Component{
 
-    
     state = {
         person: {
             name : "",
@@ -18,8 +19,8 @@ class NewPerson extends Component{
         const { person, errors, globalError } = this.state;
         
         return (
-            <div className = "teste">
-                <h1> New Person</h1>
+            <div>
+                <h1 className = "newPersonTitle"> New Person</h1>
 
                 {globalError ? <div className="alert alert-danger">
                     {globalError}
@@ -40,7 +41,7 @@ class NewPerson extends Component{
                        errors={errors["cpf"]}
                        onChange={this.handleChange}
                     />
-                    <button className = "btn btn-primary" type = "submit">Save</button>
+                    <button className = "btn btn-success" type = "submit">Save</button>
                 </form>
             </div>
         );
