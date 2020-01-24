@@ -1,3 +1,5 @@
+
+
 .titlePeople{
     font-size: 40px;
     font-family : 'Times New Roman', Times, serif;
@@ -10,6 +12,8 @@
 .table-striped{
     margin-bottom: 0.1rem;
     font-family : 'Times New Roman', Times, serif;
+    color: black;
+    font-size: 18px;
     text-align: center;
     width: 90%;
     margin-left: auto;
@@ -26,9 +30,10 @@
     background-color: rgb(196, 141, 221);
     border-color: rgb(196, 141, 221);
     border-radius: 0.5rem;
-    margin-left: 55px;
-    margin-top: 3px;
+    margin-left: 75px;
+    margin-top: 5px;
     font-family : 'Times New Roman', Times, serif;
+    font-size: 18px;
 }
 
 .btn-secondary:hover{
@@ -41,6 +46,7 @@
     border-color: rgb(196, 141, 221);
     border-radius: 0.5rem;
     margin-right: 3px;
+    font-size: 18px;
 }
 
 .btn-primary:hover{
@@ -53,4 +59,14 @@
     border-color: rgb(196, 141, 221);
     border-radius: 0.5rem;
     margin-right: 3px;
+}
+
+.button{
+    background-color: rgb(196, 141, 221);
+    border-color: rgb(196, 141, 221);
+    border-radius: 0.5rem;
+    margin-left: 75px;
+    margin-top: 5px;
+    font-family : 'Times New Roman', Times, serif;
+    font-size: 18px;
 }

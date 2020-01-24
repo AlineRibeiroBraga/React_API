@@ -49,7 +49,7 @@ class WithDraw extends Component{
 
     handleSubmit = (event) => {
     
-        axios.post(`/account/withDraw/${this.retrieveBookId()}`, this.state.balance)
+        axios.post(`/account/withDraw/${this.retrieveId()}`, this.state.balance)
              .then( () => this.props.history.push("/account"))
              .catch(({ response }) => {
                 if (response.status === 400) {
@@ -67,7 +67,7 @@ class WithDraw extends Component{
         event.preventDefault();
     }
 
-    retrieveBookId = () => this.props.match.params.id;
+    retrieveId = () => this.props.match.params.id;
 };
 
 export default WithDraw;

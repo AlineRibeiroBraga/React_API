@@ -32,6 +32,7 @@ class ListAccounts extends Component {
                 </tbody>
             </table>
             <Link to = "/account/new" className="btn btn-secondary"> Add </Link>
+            <Link to = "/Person" className="btn btn-success" > People </Link> 
         </div>
 
     }

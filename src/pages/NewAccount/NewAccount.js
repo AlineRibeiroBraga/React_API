@@ -50,9 +50,9 @@ class NewAccount extends Component{
     }
 
     handleSubmit = (event) => {
-        console.log("entrou")
+        
         axios.post("/account", this.state.account)
-             .then( () => this.props.history.push("/"))
+             .then( () => this.props.history.push("/account"))
              .catch(({ response }) => {
                 if (response.status === 400) {
                     this.setState({

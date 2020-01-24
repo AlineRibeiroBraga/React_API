@@ -53,7 +53,8 @@ class ListPeople extends Component {
                     {this.state.people.map(person => this.personRow(person))}
                 </tbody>
             </table>
-            <Link to = "/person/new" className="btn btn-secondary" > Add </Link>                       
+            <Link to = "/person/new" className="btn btn-secondary" > Add </Link>
+            <Link to = "/account" className="btn btn-success" > Accounts </Link>                       
         </div>
 
     }
