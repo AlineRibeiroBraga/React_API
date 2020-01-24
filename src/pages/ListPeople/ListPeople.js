@@ -18,10 +18,24 @@ class ListPeople extends Component {
         <td>{person.id}</td>
         <td>{person.name}</td>
         <td>{person.cpf}</td>
-        <td>
-            <button className = "btn btn-primary">Edit</button>
-            <button className = "btn btn-danger" /*onClick ={ () => handleRemove(person.id)}*/ >Remove</button> </td>
+        <td> <Link to = {`/person/${person.id}`} className = "btn btn-primary">Edit</Link>
+            <button className = "btn btn-danger" onClick ={ () => this.handleRemove(person.id)} >Remove</button> </td>
     </tr>
+
+    retrievePeople() {
+        axios.get("/person")
+            .then(({ data }) => this.setState({ people: data }))
+    }
+
+    handleAdd = () => {
+        axios.post("/person")
+            .then(() => this.retrievePeople());
+    }
+
+    handleRemove = (id) => {
+        axios.delete(`/person/${id}`)
+            .then( () => this.retrievePeople());
+    }
 
     render() {
         return <div >
@@ -39,26 +53,10 @@ class ListPeople extends Component {
                     {this.state.people.map(person => this.personRow(person))}
                 </tbody>
             </table>
-            <Link to = "/person/new" className="btn btn-secondary" onClick={() => this.handleAdd()}> Add </Link>                       
+            <Link to = "/person/new" className="btn btn-secondary" > Add </Link>                       
         </div>
 
     }
-
-    retrievePeople() {
-        axios.get("/person")
-            .then(({ data }) => this.setState({ people: data }))
-    }
-
-    handleAdd = () => {
-        axios.post("/person")
-            .then(() => this.retrievePeople());
-    }
-
-    handleRemove = (id) => {
-        axios.delete("/")
-            .then( () => this.retrievePeople());
-    }
-    
 }
 
 export default ListPeople;

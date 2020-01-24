@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import Field from '../../Component/Field/Field';
-
+import Field from '../../Component/Field';
 import axios from '../../services/httpClient';
 
 class WithDraw extends Component{
@@ -14,10 +13,14 @@ class WithDraw extends Component{
     }
 
     render(){
-        const {balance, errors,/* globalError*/ } = this.state;
+        const {balance, errors, globalError } = this.state;
 
         return <div>
             <h1 className = "newPersonTitle">With Draw</h1>
+
+            {globalError ? <div className="alert alert-danger">
+                {globalError}
+            </div> : <></>}
 
             <form onSubmit ={this.handleSubmit}>
                 <Field 

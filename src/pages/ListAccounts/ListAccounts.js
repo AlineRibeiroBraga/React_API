@@ -31,7 +31,7 @@ class ListAccounts extends Component {
                     {this.state.accounts.map(account => this.accountRow(account))}
                 </tbody>
             </table>
-            <Link to = "/account/new" className="btn btn-secondary" onClick={() => this.handleAdd()}> Add </Link>
+            <Link to = "/account/new" className="btn btn-secondary"> Add </Link>
         </div>
 
     }
@@ -53,11 +53,6 @@ class ListAccounts extends Component {
     retrieveAccount() {
         axios.get("/account")
             .then(({ data }) => this.setState({ accounts: data }))
-    }
-
-    handleAdd = () => {
-        axios.post("/account")
-            .then(() => this.retrieveAccount());
     }
 
     handleWithDraw (id) {

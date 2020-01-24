@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import Field from '../../Component/Field/Field';
-
+import Field from '../../Component/Field';
 import axios from '../../services/httpClient';
 
 class Deposit extends Component{
@@ -19,6 +18,10 @@ class Deposit extends Component{
         return <div>
             <h1 className = "newPersonTitle"> Deposit</h1>
 
+            {globalError ? <div className="alert alert-danger">
+                {globalError}
+            </div> : <></>}
+            
             <form onSubmit = {this.handleSubmit}>
                 <Field
                     name = "balance"
@@ -45,7 +48,7 @@ class Deposit extends Component{
     }
 
     handleSubmit = (event) => {
-        axios.post(`/account/deposit/${this.retrieveBookId()}`,this.state.balance)
+        axios.post(`/account/deposit/${this.retrieveAccountId()}`,this.state.balance)
              .then( () => this.props.history.push("/account"))
              .catch(({ response }) => {
                 if (response.status === 400) {
@@ -64,7 +67,7 @@ class Deposit extends Component{
 
     }
 
-    retrieveBookId = () => this.props.match.params.id;
+    retrieveAccountId = () => this.props.match.params.id;
 }
 
 export default Deposit;

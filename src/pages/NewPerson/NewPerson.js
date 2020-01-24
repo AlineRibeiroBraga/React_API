@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Field from '../../Component/Field/Field';
+import Field from '../../Component/Field';
 import axios from '../../services/httpClient';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './NewPerson.css';
